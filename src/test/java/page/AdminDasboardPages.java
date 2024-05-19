@@ -15,7 +15,7 @@ public class AdminDasboardPages {public AdminDasboardPages() {
     @FindBy(xpath = "(//*[@*='dropdown-item'])[2]")
     public WebElement editProfile;
 
-    @FindBy(xpath = "//*[text()='Raşit Çelik']")
+    @FindBy(xpath = "//*[text()='Beyza Nur Turunc']")
     public WebElement userName;
 
     @FindBy(id = "password")
@@ -38,5 +38,21 @@ public class AdminDasboardPages {public AdminDasboardPages() {
 
     @FindBy(xpath = "//*[text()='404']")
     public WebElement mainSorry;
+    @FindBy(xpath = "//div[@class='sidebar-header']")
+    public WebElement sidebar;
+
+
+    @FindBy(xpath = "(//*[text()='Users'])[1]")
+    public WebElement menuUsers;
+
+
+    @FindBy(xpath = "(//*[text()='Users'])[2]")
+    public WebElement altMenuUsers;
+
+    @FindBy(xpath = "//*[text()='Create User']")
+    public WebElement altMenuCreateUser;
+
+    @FindBy(xpath = "//*[@id='tableWithSearch']")
+    public  WebElement tabloUsers1;
 
 }
