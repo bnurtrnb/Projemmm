@@ -89,6 +89,17 @@ public class AdminDasboardPages {public AdminDasboardPages() {
     @FindBy(xpath = "//*[text()='Delete']")
     public WebElement doctorsDelete;
 
+    @FindBy(xpath = "(//*[text()='Medicines'])[1]")
+    public WebElement menuMedicines;
+
+    @FindBy(xpath = "(//*[text()='Medicines'])[2]")
+    public WebElement altMenuMedicines;
+
+    @FindBy(xpath = "(//*[text()='Create Medicines'])")
+    public WebElement altMenuCreateMedicines;
+
+
+
 
 
 
