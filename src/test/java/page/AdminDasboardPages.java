@@ -55,4 +55,39 @@ public class AdminDasboardPages {public AdminDasboardPages() {
     @FindBy(xpath = "//*[@id='tableWithSearch']")
     public  WebElement tabloUsers1;
 
+    //////////////////////////
+
+    @FindBy(xpath = "(//*[text()='Doctors'])[1]")
+    public WebElement menuDoctors;
+
+    @FindBy(xpath = "(//*[text()='Doctors'])[2]")
+    public WebElement altMenuDoctors;
+
+    @FindBy(xpath = "(//*[text()='Create Doctors'])")
+    public WebElement altMenuCreateDoctors;
+
+    @FindBy(xpath = "//*[text()='Dashboard']")
+    public WebElement dashboardBaslik;
+
+    @FindBy(xpath = "(//*[@*='Title_en'])[2]")
+    public WebElement doctorsTitle;
+
+    @FindBy(xpath = "(//*[@*='body_en'])[2]")
+    public WebElement doctorsContentEnglish;
+
+    @FindBy(xpath = "(//div[@class='dz-default dz-message'])")
+    public WebElement dropFilestoUpload;
+
+
+
+    @FindBy(xpath = "(//*[@type='submit'])")
+    public WebElement doctorsSave;
+
+
+
+
+
+
+
+
 }
