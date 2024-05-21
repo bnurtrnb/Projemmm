@@ -1,6 +1,5 @@
 package tests;
 
-import com.google.j2objc.annotations.Weak;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -10,14 +9,11 @@ import page.AdminDasboardPages;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-import java.util.List;
-
-public class US23_TC003 {
-    //Admin Kullanıcı olarak "Doctors" listesine
-    //Yeni Doktor ekleyebilmeli
-
+public class US23_TC005 {
+    //Admin Kullanıcı, oluşturulan yeni Doktoru
+    //  silebilmeli
     @Test
-    public void yeniDoctorEkleme(){
+    public void yeniDoctorSilme(){
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AdminDasboardPages adminDasboardPages = new AdminDasboardPages();
 
@@ -28,22 +24,15 @@ public class US23_TC003 {
         adminDasboardPages.officiaProfile.click();
         adminDasboardPages.sidebar.click();
         adminDasboardPages.menuDoctors.click();
-        adminDasboardPages.altMenuCreateDoctors.click();
-        adminDasboardPages.doctorsTitle.sendKeys("Dr.Betty "+Keys.ENTER);
-        adminDasboardPages.doctorsContentEnglish.sendKeys("Profession: Veterinarian  Years of Experience: 11 years  Specialization: Oncology"+Keys.ENTER);
-        //adminDasboardPages.dropFilestoUpload;
-
-        adminDasboardPages.doctorsSave.click();
-
-        String doktorIsmi="Dr.Betty";
-
-        String yeniDoktorGoruntuleme=Driver.getDriver().findElement(By.xpath("(//div[@class='card-body'])[2]")).getText();
-
-        Assert.assertTrue(yeniDoktorGoruntuleme.contains(doktorIsmi));
+        adminDasboardPages.altMenuDoctors.click();
+        Driver.getDriver().findElement(By.xpath("//tbody/tr[1]")).click();
+        adminDasboardPages.doctorsDelete.click();
 
 
+        WebElement yeniDoctorsSilmeYazi=Driver.getDriver().findElement(By.xpath("//span[text()='Doctors deleted successfully']"));
+
+        Assert.assertTrue(yeniDoctorsSilmeYazi.isDisplayed());
         Driver.closeDriver();
-
 
 
 

@@ -83,6 +83,15 @@ public class AdminDasboardPages {public AdminDasboardPages() {
     @FindBy(xpath = "(//*[@type='submit'])")
     public WebElement doctorsSave;
 
+    @FindBy(xpath = "(//*[text()='Edit'])[2]")
+    public WebElement doctorsEdit;
+
+    @FindBy(xpath = "//*[text()='Delete']")
+    public WebElement doctorsDelete;
+
+
+
+
 
 
 

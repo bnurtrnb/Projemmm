@@ -1,23 +1,20 @@
 package tests;
 
-import com.google.j2objc.annotations.Weak;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.AdminDasboardPages;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-import java.util.List;
-
-public class US23_TC003 {
-    //Admin Kullanıcı olarak "Doctors" listesine
-    //Yeni Doktor ekleyebilmeli
+public class US23_TC004 {
+    //Admin Kullanıcı, oluşturulan yeni
+    //Doktoru düzenleyebilmeli
 
     @Test
-    public void yeniDoctorEkleme(){
+    public void yeniDoctorDuzenleme(){
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AdminDasboardPages adminDasboardPages = new AdminDasboardPages();
 
@@ -28,9 +25,11 @@ public class US23_TC003 {
         adminDasboardPages.officiaProfile.click();
         adminDasboardPages.sidebar.click();
         adminDasboardPages.menuDoctors.click();
-        adminDasboardPages.altMenuCreateDoctors.click();
+        adminDasboardPages.altMenuDoctors.click();
+        Driver.getDriver().findElement(By.xpath("//tbody/tr[9]")).click();
+        adminDasboardPages.doctorsEdit.click();
         adminDasboardPages.doctorsTitle.sendKeys("Dr.Betty "+Keys.ENTER);
-        adminDasboardPages.doctorsContentEnglish.sendKeys("Profession: Veterinarian  Years of Experience: 11 years  Specialization: Oncology"+Keys.ENTER);
+        adminDasboardPages.doctorsContentEnglish.sendKeys("Profession: Veterinarian ODTÜ veterinerlik"+Keys.ENTER);
         //adminDasboardPages.dropFilestoUpload;
 
         adminDasboardPages.doctorsSave.click();
@@ -42,7 +41,15 @@ public class US23_TC003 {
         Assert.assertTrue(yeniDoktorGoruntuleme.contains(doktorIsmi));
 
 
+        //edit yaparken fotoğraf değiştirmedim listede fotoğrafı silmiş olarak verdi bug
+
+
         Driver.closeDriver();
+
+
+
+
+
 
 
 
