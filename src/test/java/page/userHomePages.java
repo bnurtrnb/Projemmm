@@ -155,4 +155,12 @@ public class userHomePages {  public userHomePages(){
     @FindBy(xpath = "(//*[text()='Home'])[2]")
     public WebElement LinkHome;
 
+    //////
+    @FindBy(xpath = "(//*[@class='btn_add'])[2]")
+    public WebElement SignOut;
+
+    @FindBy(xpath = "//*[@id='hero_video']")
+    public WebElement videoBady;
+
+
 }

@@ -2,6 +2,8 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.AdminDasboardPages;
@@ -28,9 +30,22 @@ public class US23_TC003 {
         adminDasboardPages.altMenuCreateDoctors.click();
         adminDasboardPages.rowTitle.sendKeys("Dr.Betty "+Keys.ENTER);
         adminDasboardPages.rowContent.sendKeys("Profession: Veterinarian  Years of Experience: 11 years  Specialization: Oncology"+Keys.ENTER);
-        //adminDasboardPages.dropFilestoUpload;
+       adminDasboardPages.imageProfileDropFilestoUpload.click();
+
+
+        String filePath = "C:\\Users\\PC\\Desktop\\-doktor.jpg";//benim bilisarımdaki dosyayolu
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(adminDasboardPages.imageProfileDropFilestoUpload).perform();
+
+
+
+
+
 
         adminDasboardPages.buttonSave.click();
+        Actions actionss=new Actions(Driver.getDriver());
+
+        actionss.sendKeys(Keys.END).perform();
 
         String doktorIsmi="Dr.Betty";
 
