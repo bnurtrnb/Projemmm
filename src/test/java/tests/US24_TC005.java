@@ -1,5 +1,6 @@
 package tests;
 
+import net.bytebuddy.build.ToStringPlugin;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -9,11 +10,12 @@ import page.AdminDasboardPages;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class US23_TC005 {
-    //Admin Kullanıcı, oluşturulan yeni Doktoru
-    //  silebilmeli
+public class US24_TC005 {
+    //Admin Kullanıcı, oluşturulan yeni İlacı
+    // silebilmeli
     @Test
-    public void yeniDoctorSilme(){
+    public void yeniMedicinesSilme(){
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AdminDasboardPages adminDasboardPages = new AdminDasboardPages();
 
@@ -23,16 +25,17 @@ public class US23_TC005 {
         adminDasboardPages.adminLogin.click();
         adminDasboardPages.officiaProfile.click();
         adminDasboardPages.sidebar.click();
-        adminDasboardPages.menuDoctors.click();
-        adminDasboardPages.altMenuDoctors.click();
+        adminDasboardPages.menuMedicines.click();
+        adminDasboardPages.altMenuMedicines.click();
         Driver.getDriver().findElement(By.xpath("//tbody/tr[1]")).click();
-        adminDasboardPages.iconDoctorDeletee.click();
+        adminDasboardPages.iconMedicinesDeletee.click();
 
 
-        WebElement yeniDoctorsSilmeYazi=Driver.getDriver().findElement(By.xpath("//span[text()='Doctors deleted successfully']"));
+        WebElement yeniMedicinesSilmeYazi=Driver.getDriver().findElement(By.xpath("//span[text()='Medicines deleted successfully']"));
 
-        Assert.assertTrue(yeniDoctorsSilmeYazi.isDisplayed());
+        Assert.assertTrue(yeniMedicinesSilmeYazi.isDisplayed());
         Driver.closeDriver();
+
 
 
 

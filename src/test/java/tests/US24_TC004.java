@@ -8,12 +8,13 @@ import page.AdminDasboardPages;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class US23_TC004 {
-    //Admin Kullanıcı, oluşturulan yeni
-    //Doktoru düzenleyebilmeli
+public class US24_TC004 {
+    //Admin Kullanıcı, oluşturulan yeni İlacı
+    // düzenleyebilmeli
 
     @Test
-    public void yeniDoctorDuzenleme(){
+    public void yeniMedicinesDuzenleme(){
+
 
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AdminDasboardPages adminDasboardPages = new AdminDasboardPages();
@@ -24,23 +25,22 @@ public class US23_TC004 {
         adminDasboardPages.adminLogin.click();
         adminDasboardPages.officiaProfile.click();
         adminDasboardPages.sidebar.click();
-        adminDasboardPages.menuDoctors.click();
-        adminDasboardPages.altMenuDoctors.click();
-        Driver.getDriver().findElement(By.xpath("//tbody/tr[9]")).click();
+        adminDasboardPages.menuMedicines.click();
+        adminDasboardPages.altMenuMedicines.click();
+        Driver.getDriver().findElement(By.xpath("//tbody/tr[6]")).click();
         adminDasboardPages.iconEdit.click();
-        adminDasboardPages.rowTitle.sendKeys("Dr.Betty "+Keys.ENTER);
-        adminDasboardPages.rowContent.sendKeys("Profession: Veterinarian ODTÜ veterinerlik"+Keys.ENTER);
-       // adminDasboardPages.imageProfileDropFilestoUpload;
+        adminDasboardPages.rowTitle.sendKeys("Parol "+Keys.ENTER);
+        adminDasboardPages.rowContent.sendKeys("Parol Tabletin aktif maddesi parasetamol, klinik olarak kanıtlanmıĢ, analjezik ve\n"
+                +Keys.ENTER);
+        // adminDasboardPages.imageProfileDropFilestoUpload;
 
         adminDasboardPages.buttonSave.click();
 
-        String doktorIsmi="Dr.Betty";
+        String medicinesIsmi="Parol";
 
-        String yeniDoktorGoruntuleme=Driver.getDriver().findElement(By.xpath("(//div[@class='card-body'])[2]")).getText();
+        String yeniMedicinesGoruntulenme=Driver.getDriver().findElement(By.xpath("(//div[@class='card-body'])[2]")).getText();
 
-        Assert.assertTrue(yeniDoktorGoruntuleme.contains(doktorIsmi));
-
-
+        Assert.assertTrue(yeniMedicinesGoruntulenme.contains(medicinesIsmi));
         //edit yaparken fotoğraf değiştirmedim listede fotoğrafı silmiş olarak verdi bug
 
 

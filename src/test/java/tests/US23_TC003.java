@@ -1,23 +1,20 @@
 package tests;
 
-import com.google.j2objc.annotations.Weak;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.AdminDasboardPages;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-import java.util.List;
-
 public class US23_TC003 {
-    //Admin Kullanıcı olarak "Doctors" listesine
-    //Yeni Doktor ekleyebilmeli
+    //Admin Kullanıcı olarak "Medicines" listesine
+    //Yeni İlaç ekleyebilmeli
 
     @Test
-    public void yeniDoctorEkleme(){
+    public void yeniDoctorsEkleme(){
+
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         AdminDasboardPages adminDasboardPages = new AdminDasboardPages();
 
@@ -29,11 +26,11 @@ public class US23_TC003 {
         adminDasboardPages.sidebar.click();
         adminDasboardPages.menuDoctors.click();
         adminDasboardPages.altMenuCreateDoctors.click();
-        adminDasboardPages.doctorsTitle.sendKeys("Dr.Betty "+Keys.ENTER);
-        adminDasboardPages.doctorsContentEnglish.sendKeys("Profession: Veterinarian  Years of Experience: 11 years  Specialization: Oncology"+Keys.ENTER);
+        adminDasboardPages.rowTitle.sendKeys("Dr.Betty "+Keys.ENTER);
+        adminDasboardPages.rowContent.sendKeys("Profession: Veterinarian  Years of Experience: 11 years  Specialization: Oncology"+Keys.ENTER);
         //adminDasboardPages.dropFilestoUpload;
 
-        adminDasboardPages.doctorsSave.click();
+        adminDasboardPages.buttonSave.click();
 
         String doktorIsmi="Dr.Betty";
 
@@ -43,6 +40,7 @@ public class US23_TC003 {
 
 
         Driver.closeDriver();
+
 
 
 

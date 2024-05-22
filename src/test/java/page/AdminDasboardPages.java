@@ -70,24 +70,26 @@ public class AdminDasboardPages {public AdminDasboardPages() {
     public WebElement dashboardBaslik;
 
     @FindBy(xpath = "(//*[@*='Title_en'])[2]")
-    public WebElement doctorsTitle;
+    public WebElement rowTitle;
 
     @FindBy(xpath = "(//*[@*='body_en'])[2]")
-    public WebElement doctorsContentEnglish;
+    public WebElement rowContent;
 
     @FindBy(xpath = "(//div[@class='dz-default dz-message'])")
-    public WebElement dropFilestoUpload;
+    public WebElement imageProfileDropFilestoUpload;
 
 
 
     @FindBy(xpath = "(//*[@type='submit'])")
-    public WebElement doctorsSave;
+    public WebElement buttonSave;
 
     @FindBy(xpath = "(//*[text()='Edit'])[2]")
-    public WebElement doctorsEdit;
+    public WebElement iconEdit;
 
-    @FindBy(xpath = "//*[text()='Delete']")
-    public WebElement doctorsDelete;
+    @FindBy(xpath = "(//*[text()='Delete'])[2]")
+    public WebElement iconMedicinesDeletee;
+    @FindBy(xpath = "(//*[text()='Delete'])")
+    public WebElement iconDoctorDeletee;
 
     @FindBy(xpath = "(//*[text()='Medicines'])[1]")
     public WebElement menuMedicines;
